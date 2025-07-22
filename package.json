@@ -1,0 +1,39 @@
+{
+  "name": "tarelparvez.dev",
+  "version": "1.0.0",
+  "description": "A modern, responsive portfolio website for Tarek Parvez - Full Stack Developer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server . -p 8000 -o",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Ready for deployment'"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "full-stack",
+    "developer",
+    "responsive",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Tarek Parvez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tarekparvez/tarelparvez.dev"
+  },
+  "homepage": "https://tarelparvez.dev",
+  "bugs": {
+    "url": "https://github.com/tarekparvez/tarelparvez.dev/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
