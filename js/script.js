@@ -562,14 +562,29 @@ const throttledScrollHandler = debounce(function() {
 
 window.addEventListener('scroll', throttledScrollHandler);
 
-// Add loading animation
+// Add modern loading animation
 function addLoadingAnimation() {
     const loader = document.createElement('div');
     loader.className = 'page-loader';
     loader.innerHTML = `
+        <div class="loader-bg-animation"></div>
         <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p>Loading...</p>
+            <div class="loader-logo">
+                <span class="logo-text">Tarek<span class="logo-dot">.dev</span></span>
+            </div>
+            <div class="loader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <div class="loader-text">
+                <span class="loading-word">Crafting</span>
+                <span class="loading-word">Amazing</span>
+                <span class="loading-word">Experiences</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
         </div>
     `;
     
@@ -579,37 +594,214 @@ function addLoadingAnimation() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #1a1a1a;
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 10000;
-        transition: opacity 0.5s ease;
+        transition: all 0.8s ease;
+        overflow: hidden;
     `;
     
-    const loaderContent = loader.querySelector('.loader-content');
-    loaderContent.style.cssText = `
-        text-align: center;
-        color: white;
-    `;
-    
-    const spinner = loader.querySelector('.loader-spinner');
-    spinner.style.cssText = `
-        width: 50px;
-        height: 50px;
-        border: 3px solid rgba(255,255,255,0.3);
-        border-top: 3px solid white;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 20px;
-    `;
-    
-    // Add spinner animation
+    // Add all styles for the modern loader
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes spin {
+        .loader-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1a1a, #2d2d2d, #1a1a1a);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        
+        .loader-bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(139, 0, 0, 0.05) 0%, transparent 50%);
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: #e5e5e5;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .loader-logo {
+            margin-bottom: 3rem;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #e5e5e5;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .logo-dot {
+            background: linear-gradient(135deg, #8B0000 0%, #FF4500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes logoGlow {
+            from { transform: scale(1); filter: brightness(1); }
+            to { transform: scale(1.02); filter: brightness(1.1); }
+        }
+        
+        .loader-spinner {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 3rem;
+        }
+        
+        .spinner-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+        }
+        
+        .spinner-ring:nth-child(1) {
+            border-top: 3px solid #8B0000;
+            border-right: 3px solid #8B0000;
+            animation: spinRing 2s linear infinite;
+        }
+        
+        .spinner-ring:nth-child(2) {
+            border-bottom: 3px solid #FF4500;
+            border-left: 3px solid #FF4500;
+            animation: spinRing 2s linear infinite reverse;
+            transform: scale(0.8);
+        }
+        
+        .spinner-ring:nth-child(3) {
+            border-top: 2px solid rgba(255, 69, 0, 0.5);
+            animation: spinRing 3s linear infinite;
+            transform: scale(0.6);
+        }
+        
+        @keyframes spinRing {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        
+        .loader-text {
+            margin-bottom: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .loading-word {
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: wordFade 4.5s ease-in-out infinite;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .loading-word:nth-child(1) { animation-delay: 0s; }
+        .loading-word:nth-child(2) { animation-delay: 1.5s; }
+        .loading-word:nth-child(3) { animation-delay: 3s; }
+        
+        @keyframes wordFade {
+            0%, 77.78%, 100% { 
+                opacity: 0; 
+                transform: translateY(10px) scale(0.9); 
+            }
+            11.11%, 22.22% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B0000 0%, #FF4500 100%);
+            border-radius: 2px;
+            width: 0%;
+            animation: progressLoad 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressLoad {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .logo-text { font-size: 2rem; }
+            .loader-spinner { width: 80px; height: 80px; }
+            .loading-word { font-size: 1rem; }
+            .progress-bar { width: 150px; }
         }
     `;
     document.head.appendChild(style);
@@ -619,11 +811,14 @@ function addLoadingAnimation() {
     // Hide loader when page is loaded
     window.addEventListener('load', function() {
         setTimeout(() => {
+            loader.style.transform = 'scale(0.95)';
             loader.style.opacity = '0';
             setTimeout(() => {
-                document.body.removeChild(loader);
-            }, 500);
-        }, 1000);
+                if (document.body.contains(loader)) {
+                    document.body.removeChild(loader);
+                }
+            }, 800);
+        }, 1500);
     });
 }
 
