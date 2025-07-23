@@ -275,16 +275,6 @@ function initNavbarScrollEffect() {
             navbar.classList.remove('scrolled');
         }
     });
-    
-    // Add styles for scrolled navbar
-    const style = document.createElement('style');
-    style.textContent = `
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-    `;
-    document.head.appendChild(style);
 }
 
 // Mobile menu functionality

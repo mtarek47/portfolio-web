@@ -1,5 +1,5 @@
 {
-  "name": "tarelparvez.dev",
+  "name": "tarekparvez.dev",
   "version": "1.0.0",
   "description": "A modern, responsive portfolio website for Tarek Parvez - Full Stack Developer",
   "main": "index.html",
@@ -23,11 +23,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tarekparvez/tarelparvez.dev"
+    "url": "https://github.com/tarekparvez/tarekparvez.dev"
   },
-  "homepage": "https://tarelparvez.dev",
+  "homepage": "https://tarekparvez.dev",
   "bugs": {
-    "url": "https://github.com/tarekparvez/tarelparvez.dev/issues"
+    "url": "https://github.com/tarekparvez/tarekparvez.dev/issues"
   },
   "dependencies": {},
   "devDependencies": {},

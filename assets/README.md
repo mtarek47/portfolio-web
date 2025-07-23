@@ -1,6 +1,6 @@
 # Assets Directory
 
-This directory contains all the assets for the tarelparvez.dev portfolio website.
+This directory contains all the assets for the tarekparvez.dev portfolio website.
 
 ## Required Images
 

@@ -148,7 +148,7 @@ Feel free to fork this project and customize it for your own portfolio. If you m
 
 ## 📧 Contact
 
-For questions or support, please reach out through the contact form on the website or email: contact@tarelparvez.dev
+For questions or support, please reach out through the contact form on the website or email: contact@tarekparvez.dev
 
 ---
 
