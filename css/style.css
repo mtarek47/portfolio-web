@@ -159,6 +159,7 @@ p {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 5px;
 }
 
 .bar {
@@ -167,6 +168,11 @@ p {
     background: #e5e5e5;
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger:hover .bar {
+    background: #FF4500;
 }
 
 /* Navbar Scrolled State */
@@ -193,6 +199,10 @@ p {
 
 .navbar.scrolled .bar {
     background: #e5e5e5;
+}
+
+.navbar.scrolled .hamburger:hover .bar {
+    background: #FF4500;
 }
 
 /* Hero Section */
