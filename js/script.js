@@ -316,7 +316,6 @@ function initTypingAnimation() {
         'Full Stack Developer',
         'Frontend Specialist', 
         'Backend Engineer',
-        'UI/UX Enthusiast',
         'Problem Solver'
     ];
     

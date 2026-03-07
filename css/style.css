@@ -363,12 +363,6 @@ p {
     gap: 2rem;
     align-items: center;
     justify-items: center;
-
-    /* added */
-    background: linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 100%);
-    border: 1px solid #444;
-    border-radius: 24px;
-    padding: 3rem;
 }
 
 .about-text {
