@@ -336,15 +336,14 @@
         object-fit: cover;
         object-position: center top;
         border-radius: 20px;
-        border: 5px solid transparent;
-        background: linear-gradient(#1a1a1a, #1a1a1a) padding-box, 
-                    linear-gradient(135deg, #8B0000 0%, #FF4500 100%) border-box;
+        /* border: 5px solid transparent; */
+        /* background: linear-gradient(#1a1a1a, #1a1a1a) padding-box, 
+                    linear-gradient(135deg, #8B0000 0%, #FF4500 100%) border-box; */
         box-shadow: 
             0 25px 50px rgba(0, 0, 0, 0.6),
             0 0 0 1px rgba(255, 69, 0, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: profileFloat 6s ease-in-out infinite;
     }
 
     .profile-img:hover {
@@ -368,9 +367,9 @@
             rgba(139, 0, 0, 0.4) 100%);
         border-radius: 25px;
         z-index: -1;
-        opacity: 0.7;
-        animation: profileGlow 4s ease-in-out infinite alternate;
+        opacity: 0;  /* Changed from 0.7 to 0 to hide the glow */
         filter: blur(15px);
+        transition: opacity 0.3s ease;
     }
 
     .hero-img-container::after {
@@ -385,9 +384,10 @@
             transparent 70%);
         transform: translate(-50%, -50%);
         z-index: -2;
-        animation: profilePulse 3s ease-in-out infinite;
+        /* animation: profilePulse 3s ease-in-out infinite; */
     }
 
+    /* Remove animations - keep keyframes for reference but commented out
     @keyframes profileFloat {
         0%, 100% { 
             transform: translateY(0px) rotateZ(0deg); 
@@ -424,6 +424,7 @@
             transform: translate(-50%, -50%) scale(1.1); 
         }
     }
+    */
 
     .hero-social {
         justify-content: center;
